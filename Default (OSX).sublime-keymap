@@ -1,0 +1,5 @@
+[
+    {
+        "keys": ["alt+f"], "command": "format_by_fecs"
+    }
+]
