@@ -10,7 +10,7 @@ def formatWholeFile(view, edit):
 def format(code):
     #temp = tempfile.NamedTemporaryFile()
     temp = open('ffa.js','w') 
-    temp.write(code)
+    temp.write(code.encode('utf8'))
     temp.seek(0)
     tempName = os.path.abspath(temp.name)
     temp.close()
@@ -24,10 +24,10 @@ def format(code):
     print os.popen(cmd).read()
     temp = file(tempName)
     newCode = temp.read()
-    print newCode
+    # print newCode
     temp.close()
     os.remove(tempName)
-    return newCode
+    return newCode.decode('utf8')
 
 class FormatByFecsCommand(sublime_plugin.TextCommand):
     def run(self, edit):
